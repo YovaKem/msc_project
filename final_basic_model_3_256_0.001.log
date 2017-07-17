@@ -1,0 +1,48 @@
+Training loss 0.011985278489196319 on epoch 0
+Training accuracy: 0.8171090789897666
+Dev loss: 0.4536392578125
+Dev accuracy: 0.8544
+Training loss 0.007423963813148929 on epoch 1
+Training accuracy: 0.8784986499849998
+Dev loss: 0.411369775390625
+Dev accuracy: 0.8679
+Training loss 0.006521601244020953 on epoch 2
+Training accuracy: 0.8912210135668174
+Dev loss: 0.390853515625
+Dev accuracy: 0.8737
+Training loss 0.005960522687088529 on epoch 3
+Training accuracy: 0.8991655462838476
+Dev loss: 0.3770014404296875
+Dev accuracy: 0.8786
+Training loss 0.005529770929357297 on epoch 4
+Training accuracy: 0.9062100690007667
+Dev loss: 0.3659917724609375
+Dev accuracy: 0.8825
+Training loss 0.005184516500071142 on epoch 5
+Training accuracy: 0.9114434604828943
+Dev loss: 0.36962255859375
+Dev accuracy: 0.881
+Training loss 0.004892624941187059 on epoch 6
+Training accuracy: 0.9159768441871576
+Dev loss: 0.3649912353515625
+Dev accuracy: 0.8841
+Training loss 0.004641405031055053 on epoch 7
+Training accuracy: 0.920143557150635
+Dev loss: 0.3637937744140625
+Dev accuracy: 0.8865
+Training loss 0.004418679459750471 on epoch 8
+Training accuracy: 0.9243324925832509
+Dev loss: 0.363428125
+Dev accuracy: 0.8863
+Training loss 0.004223132055533394 on epoch 9
+Training accuracy: 0.9273214146823854
+Dev loss: 0.361331103515625
+Dev accuracy: 0.886
+Training loss 0.004034466194981213 on epoch 10
+Training accuracy: 0.9302658918432427
+Dev loss: 0.372137548828125
+Dev accuracy: 0.8881
+Training loss 0.003864819450104054 on epoch 11
+Training accuracy: 0.9332325914732386
+Dev loss: 0.3801788330078125
+Dev accuracy: 0.8853
