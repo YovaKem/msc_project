@@ -22,9 +22,11 @@ class CharRNN(Chain):
         self.loss = 0
 
 
-    def forward_one_step(self, x_data, y_data, train=True, train_dev = True,dropout_ratio=0.5):
-        x = Variable(x_data, volatile=not train)
-        t = Variable(y_data, volatile=not train)
+    def forward_one_step(self, x_data, y_data, train=True, train_dev = True,dropout_ratio=0):
+        #x = Variable(x_data, volatile=not train)
+        #t = Variable(y_data, volatile=not train)
+        x=x_data
+        t=y_data
         state = {}
 
         embed_id = self.embed_enc(x_data)
