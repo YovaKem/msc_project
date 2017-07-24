@@ -1,0 +1,36 @@
+UNIT 1 : numbers followed by punctuation
+{'r ( 1936–1939 )': 0.99995095, 'School in 1921.': 0.99983585, 'ril 13 , 1813 .': 0.99979085, 'tified in 1901.': 0.99988729, 'July 16 , 1871.': 0.9997701, '2443144.5003725': 0.99982536, 'pril 15 , 1929.': 0.99988049, 'ember 9 , 1979.': 0.99982405, 's ( 1993–1998 )': 0.99987829, 'ons since 1993.': 0.99985492}
+UNIT 8: number followed by space
+{"ques '' ( 2002 ": 0.9990685, 'cial anarchism ': 0.9993273, 'rum , the 2000 ': 0.99899918, 'ANSI X3.4-1977 ': 0.99948227, 'ds. Since 2009 ': 0.99919075, 'after the 2006 ': 0.99895066, 'h January 2000 ': 0.99903411, 'idwell ( 2009a ': 0.9995808, 'leased in 2005 ': 0.99913573, ' . \nAs of 2014 ': 0.99905318}
+UNIT 10: similar sequences mmo,mpo,ppo
+{' those of commo': 0.9973805, 'tions are commo': 0.99804717, 'r graphics comp': 0.99872309, ' Awards , commo': 0.99730891, ' 1930s to suppo': 0.99802226, 'ithout the effo': 0.9976806, 'cs , Rand suppo': 0.99840379, "' was not commo": 0.99827021, 'ch as DOS suppo': 0.99821621, 'es. It is compo': 0.99880713}
+UNIT 13: complete words (mostly)
+{" 's predictions": 0.99972123, 'type or exempla': 0.99966848, 'stead additiona': 0.99973434, 'ural relativism': 0.99967027, 't contributions': 0.99976933, 's were contract': 0.99983585, 'hat connections': 0.99995077, 'hex corresponds': 0.99978584, 'ent implementat': 0.99976569, 'ted a relations': 0.99981135}
+UNIT 15: expecting -ion (KEY)
+{'fore the advent': 0.99824971, 'first Constitut': 0.9983235, ') . \nThe execut': 0.99817711, 'ly Grant succee': 0.99896491, 'r the constitut': 0.99846208, ' another execut': 0.99845475, '70s , he succee': 0.99852926, 'ional reconcili': 0.99922872, 'yroxine concent': 0.99849105, 'sizable concent': 0.99868321}
+UNIT 18: expecting -ous (KEY)
+{'surviving previ': 0.99424195, 'bution of antiq': 0.99815285, 'e certain previ': 0.99403393, 'eceive an intri': 0.99431789, 'n whether intri': 0.99398339, 'well as subsequ': 0.99449539, 'e Clark describ': 0.99434257, 'eloped in previ': 0.99521542, 'ourts ) , a tri': 0.99413657, 'es among amphib': 0.99475443}
+UNIT 20: words beginning with di- and de- (KEY)
+{'wns and distric': 0.99642015, 'hat his distrac': 0.99796635, ' Lincoln disapp': 0.99463403, ' make it diffic': 0.99773502, 'l while decreas': 0.99813944, 'hers in distres': 0.99517643, 'so it is diffic': 0.99841642, 'o it is difficu': 0.99794465, 'd Delphi ( Δελφ': 0.99495643, 'rain and diffic': 0.99527872}
+UNIT 21: specific word (KEY) = best example
+{'cation is provi': 0.98990774, "tution 's provi": 0.99258685, 'nications provi': 0.9931187, "Douglas ' provi": 0.98831546, 'p , which provi': 0.99368095, 'l support provi': 0.98948413, 'y , which provi': 0.99231404, "' ) , and provi": 0.98807311, 'here they provi': 0.99287176, ' Canadian provi': 0.99450582}
+UNIT 30: two numbers with and in between (KEY)
+{'the 18th and 19': 0.99960876, 'he 16th to 19th': 0.99939662, 'he 8th and 9th ': 0.99921793, 'the 14th and 15': 0.99933922, ' 14th and 15th ': 0.99938738, 'n the late 16th': 0.99917161, ' 19th and 20th ': 0.99918997, ' the 18th and 1': 0.99913609, '. \nIn the 19th ': 0.99935216, '. \nIn the 11th ': 0.9993149}
+UNIT 39: punctuation
+{'l adult levels.': 0.99964321, 've no speeches.': 0.99990755, 'y freed slaves.': 0.99964172, 'ural processes.': 0.99988884, 'agedy possesses': 0.99988168, 'ism or selfless': 0.9996416, 'r and producer.': 0.99964935, 'd dramatically.': 0.99971008, 'd wide success.': 0.99984717, 'ical processes.': 0.99979401}
+UNIT 44: space!!! (KEY)
+{'y of structure ': 0.99983507, 'scar statuette ': 0.99986589, 's manufacturer ': 0.99976772, 'mous statuette ': 0.99983847, 'y researchers )': 0.99994111, "opsychiatry '' ": 0.99981946, 'plot structure ': 0.99990857, 'the labyrinth )': 0.99985707, 'rble sculpture ': 0.99981433, 'ng ) structure ': 0.99983394}
+UNIT 55: trietochie
+{'liberalism\xa0 ...': 0.99242592, 'until the 17th ': 0.99306345, 'shington , D.C.': 0.99770123, 'be enemies\xa0 ...': 0.99424213, ' in history ...': 0.99161679, 'He alludes\xa0 ...': 0.99432111, 'overnments\xa0 ...': 0.99145955, ' 19th and 20th ': 0.98966312, ' 18th and 19th ': 0.98974109, 'the early 19th ': 0.98966241}
+UNIT 110: complete words
+{'e association. ': 0.99999875, 'he following : ': 0.99999851, 'nd politically.': 0.99999529, 'h was initially': 0.99999684, ' was initially ': 0.99999475, 'al elections , ': 0.99999613, ' collections , ': 0.99999589, 'nvestigations. ': 0.99999595, 'an operation , ': 0.99999636, 's , especially ': 0.99998736}
+UNIT 118: -tion to follow (key)
+{'pread distribut': 0.99345416, 'n ; and restric': 0.99158353, ' autism describ': 0.99350178, 'ed when inscrib': 0.99345231, 'tually construc': 0.99208635, 'ises is describ': 0.99293298, ' 2009 , describ': 0.99128097, ' Spain construc': 0.99191767, 'e Vedas describ': 0.99376917, 'also an attribu': 0.99321055}
+UNIT 133: -tion to follow
+{'t Greek inscrip': 0.99875885, 'hered in inform': 0.99955934, 'rug for approxi': 0.99866062, 'cultural recrea': 0.99871057, 'owever , incapa': 0.9983626, 's was accommoda': 0.99830127, 'Bob Bemer intro': 0.99868709, 'n in his reform': 0.99833471, 'd Reyes introdu': 0.99882841, 'ad been introdu': 0.99831539}
+UNIT 137: adjectives?
+{'nction specific': 0.99972618, 'what is typical': 0.99939334, "r '' , especial": 0.99930561, 'more specifical': 0.99941611, 'oward a perfect': 0.99942267, ' be assimilated': 0.999497, 'hemy , especial': 0.99951315, '81 ) , especial': 0.99950564, 'useful specific': 0.99949652, 'ka is subarctic': 0.99936879}
+UNIT 214: -words beginning with co/con
+{'s , took contro': 0.99963528, 'ing some contro': 0.99963802, 'latter is commo': 0.99964529, 't use of concep': 0.99975091, ' is `` incontro': 0.9998042, ' bitter controv': 0.99964821, 'ting the concep': 0.99966776, 'll as the commo': 0.99967277, 'o have in commo': 0.99984437, 'li , and conseq': 0.99986988}
+UNIT 222: names
+{'oît Broutchoux ': 0.99365544, 'utchoux , Emma ': 0.99114555, ', Emma Goldman ': 0.99491251, 'atore , Miguel ': 0.98596525, 'Miguel Gimenez ': 0.98437494, 'menez Igualada ': 0.99450928, ' Jordan , Iraq ': 0.98519725, 'ohad , Merinid ': 0.98684824, 'Khfaf , Zlabia ': 0.98693627, ' Jackie Joyner-': 0.98319179}

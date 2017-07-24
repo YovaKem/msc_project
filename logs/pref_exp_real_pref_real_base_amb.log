@@ -1,0 +1,25 @@
+philosophy
+850
+took
+we
+got
+recommend
+take
+Base type  Real
+NOUN
+Average certainty of real tag 0.890582 0.149128
+Average certainty of matching tags 0.830529 0.161157
+Average certainty of mismatching  tags 0.637081 0.170727
+Average log probability of the modified words -4.12486253813 0.893847962617
+VERB
+Average certainty of real tag 0.904068 0.137459
+Average certainty of matching tags 0.86205 0.165081
+Average certainty of mismatching  tags 0.671265 0.18826
+Average log probability of the modified words -3.92077661305 0.878970712306
+ADJ
+Average certainty of real tag 0.820826 0.185139
+Average certainty of matching tags 0.754081 0.184631
+Average certainty of mismatching  tags 0.714506 0.195179
+Average log probability of the modified words -4.11513122608 0.895951472797
+Average length of words with matching tags:  5.51828317947 1.86585436685
+Average length of words with mismatching tags:  5.12135208902 1.74177280831
