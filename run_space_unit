@@ -1,0 +1,5 @@
+#!/bin/sh
+for i in `seq 0 9`;
+do
+   python space_unit.py --subset $i
+done

@@ -1,0 +1,4 @@
+#!/bin/sh
+#python prefix_exp.py > pref_exp_real_pref_real_base_unamb.log
+python prefix_exp.py --unamb 0 > pref_exp_real_pref_real_base_amb.log
+#python prefix_exp.py --pref_type Pseudo > pref_exp_real_pref_pseudo_base.log
