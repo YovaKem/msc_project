@@ -19,10 +19,11 @@ class POStagger(Chain):
 
 
     def forward_one_step(self, x_data1,x_data2, y_data, train=True, sample=False, train_dev = False):
-        x1 = Variable(x_data1, volatile = not train)
+        #x1 = Variable(x_data1, volatile = not train)
         #x2 = Variable(x_data2, volatile = not train)
-        t = Variable(y_data, volatile = not train)
-        hs_lstm = self[self.layers[0]](x1)
+        #t = Variable(y_data, volatile = not train)
+        t = y_data
+        hs_lstm = self[self.layers[0]](x_data1)
         # feed into remaining LSTM layers
         for layer in self.layers[1:]:
             hs_lstm = self[layer](F.tanh(hs_lstm))
