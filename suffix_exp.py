@@ -52,7 +52,7 @@ for c, i in vocab.items():
 model = CharRNN(len(vocab), n_units, n_layers)
 serializers.load_npz(args.model, model)
 
-pseudowords = pickle.load(open('pseudowords', 'rb'))
+pseudowords = pickle.load(open('results_dict/pseudowords_new', 'rb'))
 tags = {word:pseudowords[word][4] for word in pseudowords.keys()}
 
 suffixes = {}
@@ -61,25 +61,29 @@ suffixes = {}
 #suffixes['deadjectival'] = ['ify','ly','ism','ist','ize','ish','ness','ity','en']
 
 suffixes['deverbal'] = ['ance','ment','ant','ory','ive','ion','able','ably']
-suffixes['denominal'] = ['ous','an','ic','ify','ate','ary','hood','less','ish']
+suffixes['denominal'] = ['ous','an','ic','ate','ary','hood','less','ish']
 suffixes['deadjectival'] = ['ness','ity','en']
-
+excluded=0
 #main dictionary with pseudowords as keys to dictionaries with suffixes as keys and their probability as values
-final_prob = {i:{} for i in pseudowords.keys()}
+final_prob = {i:{} for i in pseudowords.keys() if not i.endswith('lar')}
 # primetext in [list(pseudowords.keys())[i] for i in [2,3,4,145,146,147,245,246]]:
 for primetext in pseudowords.keys():
-    follow_state,init_state,follow_prob,init_prob,tag = pseudowords[primetext]
-    for suff in [item for sublist in suffixes.values() for item in sublist]:
-        prob = follow_prob
-        for i,lstm_name in zip(range(n_layers),model.lstm_enc):
-                model[lstm_name].set_state(follow_state['c{0:d}'.format(i)],follow_state['h{0:d}'.format(i)])
-        total_prob = 0
-        for char in suff:
-            total_prob += log(prob.data[0][vocab[char]],2)
-            prev_char = np.ones((1,), dtype=np.int32) * vocab[char]
-            state, prob = model.forward_one_step(prev_char, prev_char, train=False)
-        final_prob[primetext][suff] = total_prob/len(suff)
-
+    if not primetext.endswith('lar'):
+        print(primetext)
+        follow_state,init_state,follow_prob,init_prob,tag = pseudowords[primetext]
+        for suff in [item for sublist in suffixes.values() for item in sublist]:
+            prob = follow_prob
+            for i,lstm_name in zip(range(n_layers),model.lstm_enc):
+                    model[lstm_name].set_state(follow_state['c{0:d}'.format(i)],follow_state['h{0:d}'.format(i)])
+            total_prob = 0
+            for char in suff:
+                total_prob += log(prob.data[0][vocab[char]],2)
+                prev_char = np.ones((1,), dtype=np.int32) * vocab[char]
+                state, prob = model.forward_one_step(prev_char, prev_char, train=False)
+            final_prob[primetext][suff] = total_prob/len(suff)
+    else:
+        excluded+=1
+print('EXCLUDED',excluded)
 #average probability of suffix category per base category
 cat_catsuff = {i:{} for i in ['NOUN','VERB','ADJ']}
 #average probability of suffix per base category
@@ -90,8 +94,8 @@ for cat in cat_catsuff.keys():
         for suf in suffixes[suf_cat]:
             cat_suf[cat][suf_cat][suf] = np.mean([final_prob[base][suf] for base in final_prob.keys() if tags[base]==cat])
 
-pickle.dump(cat_suf, open('results_dict/prob_suff_per_basecat_unamb', 'wb'))
-pickle.dump(cat_catsuff, open('results_dict/prob_suffcat_per_basecat_unamb', 'wb'))
+pickle.dump(cat_suf, open('results_dict/prob_suff_per_basecat_unamb_new', 'wb'))
+pickle.dump(cat_catsuff, open('results_dict/prob_suffcat_per_basecat_unamb_new', 'wb'))
 
 #plot(final_prob, el_1, el_2,suffix, gr1,contexts)
 #compare_contexts(final_prob,'suffixed',el_1, el_2, suffix,gr1,contexts)

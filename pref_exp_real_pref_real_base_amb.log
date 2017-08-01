@@ -7,19 +7,22 @@ recommend
 take
 Base type  Real
 NOUN
-Average certainty of real tag 0.890582 0.149128
-Average certainty of matching tags 0.830529 0.161157
-Average certainty of mismatching  tags 0.637081 0.170727
-Average log probability of the modified words -4.12486253813 0.893847962617
+Average certainty of real tag 0.890797 0.149048
+Average certainty of matching tags 0.817405 0.160466
+Average certainty of mismatching  tags 0.613603 0.170083
+Average log probability of the modified words -4.42391381637 0.869715356597
+Average length of base 5.45666666667 1.89775012991
 VERB
-Average certainty of real tag 0.904068 0.137459
-Average certainty of matching tags 0.862049 0.16508
-Average certainty of mismatching  tags 0.671265 0.18826
-Average log probability of the modified words -3.92077661305 0.878970712306
+Average certainty of real tag 0.903692 0.137589
+Average certainty of matching tags 0.858847 0.165321
+Average certainty of mismatching  tags 0.673271 0.18419
+Average log probability of the modified words -3.96356120299 0.883955256826
+Average length of base 4.93333333333 1.54991039168
 ADJ
-Average certainty of real tag 0.820826 0.185139
-Average certainty of matching tags 0.754081 0.184631
-Average certainty of mismatching  tags 0.714506 0.195179
-Average log probability of the modified words -4.11513122608 0.895951472797
-Average length of words with matching tags:  5.51828317947 1.86585436685
-Average length of words with mismatching tags:  5.12135208902 1.74177280831
+Average certainty of real tag 0.821745 0.184718
+Average certainty of matching tags 0.742974 0.186582
+Average certainty of mismatching  tags 0.724134 0.200437
+Average log probability of the modified words -3.98465620725 0.782368038964
+Average length of base 5.576 1.88154829861
+Average length of words with matching tags:  5.35457900034 1.77104540042
+Average length of words with mismatching tags:  5.07349246231 1.76303497564

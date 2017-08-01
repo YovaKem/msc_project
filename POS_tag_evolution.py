@@ -45,8 +45,8 @@ serializers.load_npz('cv/tagger_.9075.chainermodelnew', POSmodel)
 
 
 #sequences = ['you solidify ', 'solidify ', 'you longify ', 'longify', 'the betrayal', 'betrayal ' ]
-seq1 = 'There are rumours about preparations by slum dwellers for another looting spree against banks, governmental and public property similar to the one that took place last April, '
-seq2 = "and I have already overheard youngsters"
+seq1 = 'After attending an April 11 , 1865 , speech in which Lincoln promoted voting rights for blacks , an incensed Booth changed his plans and became'
+seq2 = " determined to assassinate "
 prob_tag = {'one':[]}
 
 for char in seq1:
@@ -60,7 +60,7 @@ for i,char in enumerate(list(seq2)):
     probability = (cuda.to_cpu(POSmodel.forward_one_step(np.array(emb),np.array([prev_tag],dtype=np.int32),
                     np.array([prev_tag],dtype=np.int32),train_dev=True, train = False).data)[0])
     probability /= np.sum(probability)
-    print(seq2[0:i+1], tag_ivocab[np.argmax(probability)])
+    print(seq2[0:i+1], tag_ivocab[np.argmax(probability)],np.max(probability), probability[tag_vocab[b'NOUN']] )
 
     prob_tag['one'].append(probability)
-pickle.dump(prob_tag, open('tag_evolution','wb'))
+pickle.dump(prob_tag, open('tag_evolution_assassinate','wb'))

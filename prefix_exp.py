@@ -4,13 +4,13 @@ import argparse
 from CharRNN import CharRNN
 from POStagger import POStagger as POStaggerBasic
 from chainer import cuda, Variable, FunctionSet, serializers
-from pandas_ml import ConfusionMatrix
+#from pandas_ml import ConfusionMatrix
 import matplotlib.pyplot as plt
 import math
 parser = argparse.ArgumentParser()
 parser.add_argument('--base_type',  type=str,   default = 'Real')
 parser.add_argument('--pref_type',  type=str,   default = 'Real')
-parser.add_argument('--unamb',      type=int,   default=1)
+parser.add_argument('--unamb',      type=int,   default=0)
 args = parser.parse_args()
 
 training_data = open('data/en/train_input.txt','r').read().split()
@@ -35,11 +35,11 @@ elif args.pref_type == 'Real' and args.unamb:
                 'ADJ':['extra','anti','pro']})
 
 elif args.pref_type == 'Real' and not args.unamb:
-    prefixes = ({'NOUN':['micro','macro','vice','arch','mini','maxi','counter','pre','sub','super','hyper','hypo','ultra','post','ante','pseudo','ex','multi','meta'],
-                'VERB':['re','mis','out','over','under','up','down','counter','pre','un','in'],
-                'ADJ':['anti','pro','extra','in','un','pre','sub','super','hyper','hypo','ultra','post','ante','pseudo','ex','multi','meta']})
+    prefixes = ({'NOUN':['un'],
+                'VERB':['re'],#'mis','out','over','under','up','down','counter','pre','un','in'],
+                'ADJ':['anti']})#,'pro','extra','in','un','pre','sub','super','hyper','hypo','ultra','post','ante','pseudo','ex','multi','meta']})
 #http://alehrer.faculty.arizona.edu/sites/alehrer.faculty.arizona.edu/files/Prefixes%20in%20English%20word%20formation.pdf
-
+#['micro','macro','vice','arch','mini','maxi','counter','pre','sub','super','hyper','hypo','ultra','post','ante','pseudo','ex','multi','meta'],
 model = CharRNN(len(vocab), 256, 1)
 serializers.load_npz('cv/charrnn_1.59.chainermodelnew', model)
 
@@ -60,9 +60,11 @@ softmax = {i:{j:[] for j in prefixes[i]} for i in ['NOUN','VERB','ADJ']}
 results_per_pref = {}
 prob_real_tag = {i:[] for i in ['NOUN','VERB','ADJ']}
 prev_tag = len(tag_vocab)-1
+length = {i:[] for i in ['NOUN','VERB','ADJ']}
 total_pplx ={i:[] for i in ['NOUN','VERB','ADJ']}
 for word in words.keys():
     follow_state,init_state,prob,init_prob,real_tag = words[word]
+    length[real_tag].append(len(word))
     for j in prefixes[real_tag]:
         comb = j+word
         pplx = 0
@@ -109,11 +111,11 @@ for word in words.keys():
                 incorrect[real_tag].append(np.max(prob_tag))
                 len_mismatch.append(len(word))
 
-pickle.dump(results_per_pref,open('results_dict/results_per_pref_{}_{}_unamb{}'.format(args.pref_type, args.base_type,args.unamb),'wb'))
-pickle.dump(words_match,open('results_dict/words_match_{}_pref_{}_unamb{}_base'.format(args.pref_type,args.base_type,args.unamb),'wb'))
-pickle.dump(results,open('results_dict/results_{}_{}_unamb{}_new'.format(args.pref_type,args.base_type,args.unamb),'wb'))
-pickle.dump(results_cumm,open('results_dict/results_cumm_{}_{}_unamb{}_new'.format(args.pref_type,args.base_type,args.unamb),'wb'))
-pickle.dump(softmax, open('results_dict/softmax_{}_{}_unamb{}'.format(args.pref_type,args.base_type,args.unamb),'wb'))
+#pickle.dump(results_per_pref,open('results_dict/results_per_pref_{}_{}_unamb{}'.format(args.pref_type, args.base_type,args.unamb),'wb'))
+#pickle.dump(words_match,open('results_dict/words_match_{}_pref_{}_unamb{}_base'.format(args.pref_type,args.base_type,args.unamb),'wb'))
+#pickle.dump(results,open('results_dict/results_{}_{}_unamb{}_new'.format(args.pref_type,args.base_type,args.unamb),'wb'))
+#pickle.dump(results_cumm,open('results_dict/results_cumm_{}_{}_unamb{}_new'.format(args.pref_type,args.base_type,args.unamb),'wb'))
+pickle.dump(softmax, open('results_dict/softmax_un_NOUN_{}_{}_unamb{}'.format(args.pref_type,args.base_type,args.unamb),'wb'))
 print('Base type ', args.base_type)
 for i in ['NOUN','VERB','ADJ']:
     print(i)
@@ -121,8 +123,9 @@ for i in ['NOUN','VERB','ADJ']:
     print('Average certainty of matching tags', np.mean(correct[i]), np.std(correct[i]))
     print('Average certainty of mismatching  tags', np.mean(incorrect[i]), np.std(incorrect[i]))
     print('Average log probability of the modified words', np.mean(total_pplx[i]), np.std(total_pplx[i]))
+    print('Average length of base',np.mean(length[i]), np.std(length[i]))
 print('Average length of words with matching tags: ', np.mean(len_match), np.std(len_match))
-pickle.dump(total_considered,open('results_dict/total_considered_{}_pref_{}_unamb{}_base'.format(args.pref_type,args.base_type,args.unamb),'wb'))
+#pickle.dump(total_considered,open('results_dict/total_considered_{}_pref_{}_unamb{}_base'.format(args.pref_type,args.base_type,args.unamb),'wb'))
 print('Average length of words with mismatching tags: ', np.mean(len_mismatch), np.std(len_mismatch))
 #cm = ConfusionMatrix(y_true, y_pred)
 #cm.plot(normalized=True)

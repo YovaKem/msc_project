@@ -108,7 +108,7 @@ for i in range(args.length):
         try:
             suff = (['acy','al','ence','dom','ity','ness','ful','ion','ate','hood','ship','ize','ing',
                     'ed','able','s','ly','ant','ory','ary','ic','ify','ment','ism','er','ist','ance',
-                    'age','or','ium','ible','ee','less','ous','ish','ive'])
+                    'age','or','ium','ible','ee','less','ous','ish','ive','ian','ian','ent','logy','est'])
             if len(ave_real_tag)<301 and d.check(word) and e.check(word) and not word[0].isupper() and all([c.isalpha() for c in word]):
                 print(len(ave_real_tag))
                 prob_tag = POSmodel.forward_one_step(state['h0'].data,np.array([prev_tag],dtype=np.int32),np.array([prev_tag],dtype=np.int32),train_dev=True, train = False)
